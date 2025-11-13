@@ -1,0 +1,42 @@
+<div class="main-content container">
+    <form 
+    class="main-form"
+    action="{{ form_action }}" 
+    method="POST"
+    enctype="multipart/form-data"  
+    >
+    {% csrf_token %}
+    <div>
+        {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+
+                {% if field.help_text %}
+                    <p class="help-text">{{ field.help_text }}</p>
+                {% endif %}
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+
+            {% if form.errors %}
+                <div>
+                    <div>
+                        <div>
+                            Há erros no formulário, por favor, corrija e envie novamente.
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+    </div>
+
+        <div>
+            <div>
+                <button type="submit">Enviar</button>
+            </div>
+        </div>
+    </form>
+
+
+
+</div>
