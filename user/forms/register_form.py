@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django import forms
+from utils.validator import strong_password
 
 
 class RegisterForm(forms.ModelForm):
@@ -30,7 +31,8 @@ class RegisterForm(forms.ModelForm):
         help_text=(
             'A senha precisa ter letras maiusculas e minusculas, numeros e simbolos'
         ),
-        label='Password'
+        label='Password',
+        validators=[strong_password]
     )
 
     class Meta:
