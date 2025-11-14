@@ -53,12 +53,12 @@ def login_create(request):
 
         if authenticated_user is not None:
             login(request, authenticated_user)
-            messages.success(request, 'You are logged in.')
+            messages.success(request, 'Você logou.')
             return redirect(reverse('todo_list:home'))
 
-        messages.error(request, 'Invalid credentials')
+        messages.error(request, 'Credenciais inválidas')
     else:
-        messages.error(request, 'Invalid username or password')
+        messages.error(request, 'Senha ou usuário incorretos')
 
     # Volta para a página de login com o formulário preenchido e inválido
     return render(
