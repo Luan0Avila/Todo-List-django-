@@ -4,6 +4,8 @@ from django.urls import reverse
 from django.contrib import messages
 from django.http import Http404
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 def register_view(request):
     register_form_data = request.session.get('register_form_data', None)
@@ -72,3 +74,17 @@ def login_create(request):
             'form_action': reverse('user:login_create')
         }
     )
+
+@login_required(login_url='user:login',redirect_field_name='next')
+def logout_view(request):
+    if not request.POST:
+        messages.error(request, 'Reuisição inválida')
+        return redirect(reverse('user:login'))
+    
+    if request.POST.get('username') != request.user.username:
+        messages.error(request, 'Logout de usuário inválido')
+        return redirect(reverse('user:login'))
+
+    messages.success(request, 'Deslogado com sucesso.')
+    logout(request)
+    return redirect(reverse('user:login'))
