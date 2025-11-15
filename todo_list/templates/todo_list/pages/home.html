@@ -2,9 +2,21 @@
     
 {% block content %}
     <div>
-        <h2>Bem Vindo!</h2>
-        <!--colocar um if para caso o user estiver sem login ser redirecionado para a página de login-->
-        <!--Caso estiver logado irá mostrar uma lista com as tarefas-->
+        <h2>Bem Vindo, {{ user }}!</h2>
+
+        {% if user.is_authenticated %}
+            {% for todo in todos %}
+                {% include 'todo_list/partials/todo.html' %}
+            {% empty %}
+                <div>
+                    <h3>Você ainda não tem nenhuma tarefa</h3>
+                </div>
+            {% endfor %}
+        
+        {% else %}
+            <h2>Entre para ver suas tarefas</h2>
+        {% endif %}
     </div>
+
 {% endblock content %}
     
