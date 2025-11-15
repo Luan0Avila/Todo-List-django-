@@ -29,6 +29,8 @@ def register_create(request):
 
         del(request.session['register_form_data'])
         return redirect(reverse('todo_list:home'))
+    
+    return redirect('user:register_view')
 
 
 def login_view(request):
@@ -53,14 +55,15 @@ def login_create(request):
 
         if authenticated_user is not None:
             login(request, authenticated_user)
-            messages.success(request, 'Você logou.')
+            messages.success(request, 'You are logged in.')
             return redirect(reverse('todo_list:home'))
 
-        messages.error(request, 'Credenciais inválidas')
-    else:
-        messages.error(request, 'Senha ou usuário incorretos')
+        messages.error(request, 'Invalid credentials')
 
-    # Volta para a página de login com o formulário preenchido e inválido
+    else:
+        messages.error(request, 'Invalid username or password')
+
+    # EM CASO DE ERRO: NÃO REDIRECIONAR
     return render(
         request,
         'user/pages/login.html',
