@@ -5,4 +5,4 @@ from ..models import Todo
 class HomeView(ListView):
     model = Todo
     template_name = 'todo_list/pages/home.html'
-    context_object_name = 'todo'
+    context_object_name = 'todos'
