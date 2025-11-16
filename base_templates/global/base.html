@@ -10,15 +10,14 @@
             <input type="hidden" name="username" value="{{ request.user.username }}">
             <button type="submit">Desconectar</button>
         </form>
+    {% else %}
+        <a href="{% url 'user:login_view'%}">Entrar</a>
+        <a href="{% url 'user:register_view'%}">Cadastrar</a>
     {% endif %}
 </nav>
 
 {%block content%}{%endblock content%}
 
 {% include './partials/footer.html'%}
-
-<p>DEBUG — is_authenticated: {{ user.is_authenticated }}</p>
-<p>DEBUG — user: {{ user }}</p>
-<p>DEBUG — total todos: {{ todos|length }}</p>
 
 

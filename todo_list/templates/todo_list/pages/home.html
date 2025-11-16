@@ -2,7 +2,12 @@
     
 {% block content %}
     <div>
-        <h2>Bem Vindo, {{ user }}!</h2>
+        {% if user.is_authenticated %}
+            <h2>Bem Vindo, {{ user }}!</h2>
+        
+        {% else %}
+            <h2>Bem Vindo!</h2>
+        {% endif %}
 
         {% if user.is_authenticated %}
             {% for todo in todos %}
