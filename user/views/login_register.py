@@ -75,16 +75,16 @@ def login_create(request):
         }
     )
 
-@login_required(login_url='user:login',redirect_field_name='next')
+@login_required(login_url='user:login', redirect_field_name='next')
 def logout_view(request):
-    if not request.POST:
-        messages.error(request, 'Reuisição inválida')
-        return redirect(reverse('user:login'))
-    
-    if request.POST.get('username') != request.user.username:
-        messages.error(request, 'Logout de usuário inválido')
-        return redirect(reverse('user:login'))
+    if request.method != 'POST':
+        messages.error(request, 'Requisição inválida.')
+        return redirect(reverse('todo_list:home'))
 
-    messages.success(request, 'Deslogado com sucesso.')
+    if request.POST.get('username') != request.user.username:
+        messages.error(request, 'Logout de usuário inválido.')
+        return redirect(reverse('todo_list:home'))
+
     logout(request)
-    return redirect(reverse('user:login'))
+    messages.success(request, 'Deslogado com sucesso.')
+    return redirect(reverse('user:login_view'))

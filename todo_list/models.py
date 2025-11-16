@@ -9,9 +9,7 @@ class Todo(models.Model):
     tarefa = models.CharField(max_length=65, verbose_name='Titulo da tarefa')
     descrição = models.CharField(max_length=165, verbose_name='Descrição da tarefa')
     status = models.CharField(choices=Status.choices, default=Status.PENDENTE)
-    user = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True
-    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
         """Retorna uma representação da stirng do modelo"""

@@ -3,10 +3,22 @@
 <header>
     <h1>Todo List</h1>
 </header>
+<nav>
+    {% if user.is_authenticated %}
+        <form action="{% url 'user:logout' %}" method="POST" class="form-logout">
+            {% csrf_token %}
+            <input type="hidden" name="username" value="{{ request.user.username }}">
+            <button type="submit">Desconectar</button>
+        </form>
+    {% endif %}
+</nav>
 
 {%block content%}{%endblock content%}
 
 {% include './partials/footer.html'%}
 
+<p>DEBUG — is_authenticated: {{ user.is_authenticated }}</p>
+<p>DEBUG — user: {{ user }}</p>
+<p>DEBUG — total todos: {{ todos|length }}</p>
 
 
