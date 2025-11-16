@@ -12,6 +12,10 @@
         {% if user.is_authenticated %}
             {% for todo in todos %}
                 {% include 'todo_list/partials/todo.html' %}
+                <!--Criar aqui botões de ações rapidas-->
+                <!--Marcar tarefa como concluida-->
+                <!--Apagar a tarefa-->
+                <!--Editar a tarefa-->
             {% empty %}
                 <div>
                     <h3>Você ainda não tem nenhuma tarefa</h3>
