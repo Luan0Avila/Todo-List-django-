@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from ..forms import TodoForm
 from django.urls import reverse_lazy
 from ..models import Todo
@@ -19,3 +19,9 @@ class UpdateTodoView(UpdateView):
     fields = ['tarefa', 'descrição', 'status']
     template_name = 'todo_list/pages/update_todo.html'
     success_url = reverse_lazy('todo_list:home')
+
+
+class DeleteTodoView(DeleteView):
+    model = Todo
+    template_name = 'todo_list/partials/delete_confirm.html'
+    success_url = '/'
