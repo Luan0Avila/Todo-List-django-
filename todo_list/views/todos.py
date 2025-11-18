@@ -8,6 +8,12 @@ class CreateTodoView(CreateView):
     form_class = TodoForm
     success_url = '/'
 
+    def form_valid(self, form):
+        todo = form.save(commit=False)
+        todo.user = self.request.user 
+        todo.save()
+        return super().form_valid(form)
+
 class UpdateTodoView(UpdateView):
     model = Todo
     fields = ['tarefa', 'descrição', 'status']

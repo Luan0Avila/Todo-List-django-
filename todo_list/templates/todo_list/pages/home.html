@@ -21,6 +21,9 @@
                     <h3>Você ainda não tem nenhuma tarefa</h3>
                 </div>
             {% endfor %}
+            <div>
+                <a href="{% url "todo_list:create_todo" %}">Criar tarefa</a>
+            </div>
         
         {% else %}
             <h2>Entre para ver suas tarefas</h2>
