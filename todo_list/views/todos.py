@@ -1,6 +1,7 @@
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView,View
 from ..forms import TodoForm
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from ..models import Todo
 
 class CreateTodoView(CreateView):
@@ -25,3 +26,17 @@ class DeleteTodoView(DeleteView):
     model = Todo
     template_name = 'todo_list/partials/delete_confirm.html'
     success_url = '/'
+
+
+class ToggleStatusView(View):
+    def post(self, request, pk):
+        todo = Todo.objects.get(pk=pk)
+
+        if todo.status == Todo.Status.PENDENTE:
+            todo.status = Todo.Status.FINALIZADO
+        else:
+            todo.status = Todo.Status.PENDENTE
+
+        todo.save()
+
+        return redirect('/')

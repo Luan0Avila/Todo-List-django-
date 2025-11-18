@@ -1,0 +1,10 @@
+<form method="POST" action="{% url 'todo_list:toggle_status' todo.id %}">
+    {% csrf_token %}
+    <button type="submit">
+        {% if todo.status == "Pendente" %}
+            Marcar como concluída
+        {% else %}
+            Marcar como pendente
+        {% endif %}
+    </button>
+</form>
