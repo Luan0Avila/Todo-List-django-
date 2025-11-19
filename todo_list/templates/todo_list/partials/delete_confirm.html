@@ -1,4 +1,6 @@
 <form method="POST" action="{% url 'todo_list:delete_todo' todo.id %}">
     {% csrf_token %}
-    <button type="submit" style="color:red;">Apagar</button>
+    <button type="submit" style="color:red;">
+        <i class="fa-solid fa-trash"></i>
+    </button>
 </form>

@@ -2,9 +2,9 @@
     {% csrf_token %}
     <button type="submit">
         {% if todo.status == "Pendente" %}
-            Marcar como concluída
+            <i class="fa-solid fa-check"></i>
         {% else %}
-            Marcar como pendente
+            <i class="fa-solid fa-xmark"></i>
         {% endif %}
     </button>
 </form>

@@ -1,24 +1,25 @@
 {% include './partials/head.html'%}
 
-<header>
+<header class="page-header">
     <h1>Todo List</h1>
+
+    <nav class="enter-out">
+        {% if user.is_authenticated %}
+            <form action="{% url 'user:logout' %}" method="POST" class="form-logout">
+                {% csrf_token %}
+                <input type="hidden" name="username" value="{{ request.user.username }}">
+                <button class="enter-out-button" type="submit">Desconectar</button>
+            </form>
+        {% else %}
+            <button class="enter-out-button">
+                <a href="{% url 'user:login_view'%}">Entrar</a>
+            </button>
+            <button class="enter-out-button">
+                <a href="{% url 'user:register_view'%}">Cadastrar</a>
+            </button>
+            {% endif %}
+    </nav>
 </header>
-<nav>
-    {% if user.is_authenticated %}
-        <form action="{% url 'user:logout' %}" method="POST" class="form-logout">
-            {% csrf_token %}
-            <input type="hidden" name="username" value="{{ request.user.username }}">
-            <button type="submit">Desconectar</button>
-        </form>
-    {% else %}
-        <button>
-            <a href="{% url 'user:login_view'%}">Entrar</a>
-        </button>
-        <button>
-            <a href="{% url 'user:register_view'%}">Cadastrar</a>
-        </button>
-        {% endif %}
-</nav>
 
 {%block content%}{%endblock content%}
 
