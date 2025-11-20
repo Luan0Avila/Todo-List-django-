@@ -1,5 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+
+class Category(models.Model):
+    name = models.CharField(max_length=65)
+
+    def __str__(self):
+        return self.name
+
 class Todo(models.Model):
 
     class Status(models.TextChoices):
@@ -10,6 +17,7 @@ class Todo(models.Model):
     descrição = models.CharField(max_length=165, verbose_name='Descrição da tarefa')
     status = models.CharField(choices=Status.choices, default=Status.PENDENTE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    categoria = models.ManyToManyField(Category, blank=True)
     
     def __str__(self):
         """Retorna uma representação da stirng do modelo"""

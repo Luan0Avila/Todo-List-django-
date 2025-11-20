@@ -3,17 +3,16 @@ from ..forms import TodoForm
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from ..models import Todo
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class CreateTodoView(CreateView):
+class CreateTodoView(LoginRequiredMixin, CreateView):
     template_name = 'todo_list/pages/create_todo.html'
     form_class = TodoForm
     success_url = '/'
 
     def form_valid(self, form):
-        todo = form.save(commit=False)
-        todo.user = self.request.user 
-        todo.save()
-        return super().form_valid(form)
+        form.save(user=self.request.user)
+        return redirect(self.success_url)
 
 class UpdateTodoView(UpdateView):
     model = Todo
