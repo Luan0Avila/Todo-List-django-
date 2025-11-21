@@ -16,7 +16,7 @@ class CreateTodoView(LoginRequiredMixin, CreateView):
 
 class UpdateTodoView(UpdateView):
     model = Todo
-    fields = ['tarefa', 'descrição', 'status']
+    form_class = TodoForm
     template_name = 'todo_list/pages/update_todo.html'
     success_url = reverse_lazy('todo_list:home')
 
