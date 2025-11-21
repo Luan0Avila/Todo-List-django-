@@ -65,7 +65,6 @@ def login_create(request):
     else:
         messages.error(request, 'Invalid username or password')
 
-    # EM CASO DE ERRO: NÃO REDIRECIONAR
     return render(
         request,
         'user/pages/login.html',
@@ -75,7 +74,7 @@ def login_create(request):
         }
     )
 
-@login_required(login_url='user:login', redirect_field_name='next')
+@login_required(login_url='user:login_view', redirect_field_name='next')
 def logout_view(request):
     if request.method != 'POST':
         messages.error(request, 'Requisição inválida.')

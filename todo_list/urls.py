@@ -9,4 +9,5 @@ urlpatterns = [
     path('edit/<int:pk>/', views.UpdateTodoView.as_view(), name='edit_todo'),
     path('delete/<int:pk>/', views.DeleteTodoView.as_view(), name='delete_todo'),
     path('toggle/<int:pk>/', views.ToggleStatusView.as_view(), name='toggle_status'),
+    path('search/', views.TodoSearchView.as_view(), name='search_todos'),
 ]

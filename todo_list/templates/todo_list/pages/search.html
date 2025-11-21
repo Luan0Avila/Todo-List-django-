@@ -1,0 +1,15 @@
+{% extends "global/base.html" %}
+
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+    <div>
+        {% for todo in todos %}
+            {% include "todo_list/partials/todo.html" %}
+            {% empty %}
+            <h1>Nenhum resultado encontrado</h1>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
+

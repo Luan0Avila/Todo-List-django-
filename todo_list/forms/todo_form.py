@@ -11,12 +11,11 @@ class TodoForm(forms.ModelForm):
 
     class Meta:
         model = Todo
-        fields = ['tarefa', 'descrição', 'status']  # categoria vem pelo input custom
+        fields = ['tarefa', 'descrição', 'status']  
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # Se estiver editando (update), preencher o campo com as categorias existentes
         if self.instance.pk:
             categorias = self.instance.categoria.values_list("name", flat=True)
             self.initial['categorias_input'] = ", ".join(categorias)
@@ -30,14 +29,12 @@ class TodoForm(forms.ModelForm):
         if commit:
             todo.save()
 
-        # Lê o campo do input
         categorias_texto = self.cleaned_data.get("categorias_input", "")
         categorias_nomes = [c.strip() for c in categorias_texto.split(",") if c.strip()]
 
-        # 🔥 Remove TODAS as categorias antes de adicionar as novas
+ 
         todo.categoria.clear()
 
-        # Recria/associa as categorias digitadas
         categorias_objs = [
             Category.objects.get_or_create(name=nome)[0]
             for nome in categorias_nomes

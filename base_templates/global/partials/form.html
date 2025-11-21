@@ -6,6 +6,8 @@
     enctype="multipart/form-data"  
     >
     {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+
     <div>
         {% for field in form %}
             <div>

@@ -1,7 +1,7 @@
 {% include './partials/head.html'%}
 
 <header class="page-header">
-    <h1>Todo List</h1>
+    <h1><a href="{% url "todo_list:home" %}">Todo List</a></h1>
 
     <nav class="enter-out">
         {% if user.is_authenticated %}
@@ -21,6 +21,7 @@
     </nav>
 </header>
 
+{% include "./partials/search.html" %}
 {%block content%}{%endblock content%}
 
 {% include './partials/footer.html'%}
