@@ -1,27 +1,152 @@
+/* ======== RESET ======== */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
-.page-header {
-    background-color: rgb(71, 109, 141);
+/* ======== BODY ======== */
+body {
+    background: linear-gradient(to bottom, #bcd3ea, #d7e5f5);
+    min-height: 100vh;
 }
 
-.page-header h1 {
-    text-align: center;
-    display: block;
-    text-decoration: underline;
-}
-
-.enter-out {
-    align-items: center;
+/* ======== NAVBAR ======== */
+header {
+    width: 100%;
+    background: #345f8c;
+    padding: 15px 0;
     display: flex;
-    margin: 0px 10px 10px;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
 }
 
-.enter-out-button {
+header h1 {
+    margin: 0 auto;
+    color: #f2d9ff;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.logout-btn {
+    background: white;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+/* ======== SEARCH BAR ======== */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 250px;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.search-bar button {
     border: none;
     background: none;
-    outline: none;
+    cursor: pointer;
 }
 
+/* ======== MAIN CONTAINER ======== */
+.container {
+    width: 80%;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 10px;
+}
+
+/* ======== TITLE ======== */
+.container h2 {
+    font-size: 32px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* ======== TASK BOXES ======== */
+.task {
+    background: #fdfdfd;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 2px 6px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-left {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.task-left input[type=checkbox] {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #7744cc;
+    border-radius: 6px;
+}
+
+.task-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+}
+
+.task-desc {
+    font-size: 14px;
+    color: #666;
+}
+
+/* STATUS BADGE */
+.status {
+    background: #f9deb3;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #754c00;
+}
+
+/* BUTTON: Criar Tarefa */
+.create-btn {
+    display: block;
+    margin: 40px auto 10px auto;
+    padding: 12px 35px;
+    background: #643bd6;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.create-btn:hover {
+    background: #532dc1;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #444;
+    font-size: 14px;
+}

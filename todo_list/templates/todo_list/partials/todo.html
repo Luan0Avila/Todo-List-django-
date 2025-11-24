@@ -1,12 +1,10 @@
-<div>
+<div class="task">
+    <div class="task-title">
     <a href="{% url "todo_list:edit_todo" todo.id %}">
-        <div>
-            <h4>{{ todo.tarefa }}</h4>
-        </div>
-        <div>
-            <p>{{ todo.descrição }}</p>
-        </div>
-        <div>
+            <h4 class="task-title">{{ todo.tarefa }}</h4>
+            <p class="task-desc">{{ todo.descrição }}</p>
+    </div>
+        <div class="status">
             <p>{{ todo.status }}</p>
         </div>
     </a>
