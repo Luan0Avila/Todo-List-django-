@@ -8,107 +8,141 @@
 
 /* ======== BODY ======== */
 body {
-    background: linear-gradient(to bottom, #bcd3ea, #d7e5f5);
+    background: linear-gradient(to bottom, #bfd9f5, #dfeaf7);
     min-height: 100vh;
 }
 
-/* ======== NAVBAR ======== */
-header {
+/* ======== HEADER ======== */
+header.page-header {
     width: 100%;
-    background: #345f8c;
-    padding: 15px 0;
+    background: #2f4e78;
+    padding: 18px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 a {
+    color: #f0dbff;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+header h1 a:hover {
+    opacity: 0.8;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px; 
 }
 
 header h1 {
-    margin: 0 auto;
-    color: #f2d9ff;
-    font-size: 30px;
-    font-weight: 600;
+    margin: 0; 
 }
 
-.logout-btn {
-    background: white;
-    color: #333;
-    padding: 8px 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 14px;
-    margin-left: 20px;
-}
 
 /* ======== SEARCH BAR ======== */
+.search-container {
+    margin-left: auto;
+}
+
 .search-bar {
     display: flex;
     align-items: center;
     background: white;
     padding: 10px 15px;
-    border-radius: 8px;
-    width: 250px;
-    margin-right: 20px;
+    border-radius: 10px;
 }
 
 .search-bar input {
     border: none;
     outline: none;
-    width: 100%;
+    width: 220px;
+    font-size: 15px;
 }
 
 .search-bar button {
     border: none;
     background: none;
     cursor: pointer;
+    font-size: 18px;
 }
 
-/* ======== MAIN CONTAINER ======== */
+/* ======== LOGOUT BUTTON ======== */
+.logout-btn {
+    background: #ffffff;
+    color: #2f2f2f;
+    padding: 9px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-left: 1rem; 
+}
+
+.logout-btn:hover {
+    background: #ececec;
+}
+
+/* ======== CONTAINER ======== */
 .container {
     width: 80%;
-    margin: 40px auto;
+    max-width: 900px;
+    margin: 60px auto;
     background: white;
-    padding: 40px;
-    border-radius: 18px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 10px;
+    padding: 45px 50px;
+    border-radius: 22px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 8px 18px;
 }
 
-/* ======== TITLE ======== */
+/* ======== TITLES ======== */
 .container h2 {
-    font-size: 32px;
+    font-size: 34px;
+    margin-bottom: 16px;
     color: #222;
-    margin-bottom: 20px;
 }
 
-/* ======== TASK BOXES ======== */
+.container h3 {
+    font-size: 22px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* ======== TASK ITEM ======== */
 .task {
-    background: #fdfdfd;
+    background: #fbfbff;
     padding: 22px;
-    border-radius: 14px;
-    box-shadow: rgba(0, 0, 0, 0.08) 0 2px 6px;
-    margin-bottom: 18px;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 6px;
+    margin-bottom: 20px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    transition: transform 0.15s;
 }
 
-.task-left {
-    display: flex;
-    gap: 18px;
-    align-items: center;
+.task:hover {
+    transform: translateY(-2px);
 }
 
-.task-left input[type=checkbox] {
-    width: 28px;
-    height: 28px;
-    border: 2px solid #7744cc;
-    border-radius: 6px;
-}
-
-.task-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #222;
+/* ======== TASK TEXT ======== */
+.task-title h4 {
+    font-size: 20px;
+    color: #242424;
+    margin-bottom: 6px;
 }
 
 .task-desc {
@@ -116,37 +150,59 @@ header h1 {
     color: #666;
 }
 
-/* STATUS BADGE */
+/* ======== STATUS BADGE ======== */
 .status {
-    background: #f9deb3;
-    padding: 8px 18px;
+    background: #d8e3ff;
+    padding: 8px 16px;
     border-radius: 10px;
-    font-size: 15px;
-    color: #754c00;
+    font-size: 14px;
+    color: #29447a;
+    font-weight: 600;
 }
 
-/* BUTTON: Criar Tarefa */
+/* ======== BUTTON: Criar Tarefa ======== */
 .create-btn {
-    display: block;
-    margin: 40px auto 10px auto;
-    padding: 12px 35px;
-    background: #643bd6;
-    color: white;
-    font-size: 18px;
-    border-radius: 10px;
+    margin: 35px auto 0 auto;
+    padding: 14px 40px;
+    background: #6535d6;
     border: none;
+    border-radius: 12px;
     cursor: pointer;
     transition: 0.2s;
 }
 
-.create-btn:hover {
-    background: #532dc1;
+.create-btn a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
 }
 
-/* FOOTER */
+.create-btn:hover {
+    background: #5127b4;
+}
+
+/* ======== EMPTY STATE ======== */
+.empty-box {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-box h3 {
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.empty-box img {
+    width: 200px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    margin-bottom: 20px;
+}
+
+/* ======== FOOTER ======== */
 footer {
     text-align: center;
-    margin-top: 20px;
+    margin: 40px 0;
     color: #444;
     font-size: 14px;
 }

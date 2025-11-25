@@ -1,34 +1,27 @@
-    {% extends "global/base.html" %}
-    
+{% extends "global/base.html" %}
+
 {% block content %}
-    <div>
-        {% if user.is_authenticated %}
-            <h2>Bem Vindo, {{ user }}!</h2>
-        
-        {% else %}
-            <h2>Bem Vindo!</h2>
-        {% endif %}
+<div>
 
-        {% if user.is_authenticated %}
-            {% for todo in todos %}
-                {% include 'todo_list/partials/todo.html' %}
-                <!--Criar aqui botões de ações rapidas-->
-                <!--Marcar tarefa como concluida-->
-                <!--Apagar a tarefa-->
-                <!--Editar a tarefa-->
-            {% empty %}
-                <div>
-                    <h3>Você ainda não tem nenhuma tarefa</h3>
-                </div>
-            {% endfor %}
-            <div>
-                <button class="create-btn"><a href=" href="{% url "todo_list:create_todo" %}>Criar tarefa</a></button>
+    {% if user.is_authenticated %}
+        <h2>Bem Vindo, {{ user }}!</h2>
+
+        {% for todo in todos %}
+            {% include 'todo_list/partials/todo.html' %}
+        {% empty %}
+            <div class="empty-box">
+                <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" alt="">
+                <h3>Você ainda não tem nenhuma tarefa</h3>
             </div>
-        
-        {% else %}
-            <h2>Entre para ver suas tarefas</h2>
-        {% endif %}
-    </div>
+        {% endfor %}
 
+        <button class="create-btn">
+            <a href="{% url 'todo_list:create_todo' %}">Criar tarefa</a>
+        </button>
+
+    {% else %}
+        <h2>Entre para ver suas tarefas</h2>
+    {% endif %}
+
+</div>
 {% endblock content %}
-    
