@@ -6,13 +6,13 @@ class ProfileView(TemplateView):
     template_name = 'user/pages/profile.html'
 
     def get(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
-        profile_id = context.get('id')
-        profile = get_object_or_404(Profile.objects.filter(
+        profile_id = kwargs.get('id')
+
+        profile = get_object_or_404(
+            Profile.objects.select_related('user'),
             pk=profile_id
-        ).select_related('user'), pk=profile_id)
+        )
 
         return self.render_to_response({
-            **context,
             'profile': profile,
         })
