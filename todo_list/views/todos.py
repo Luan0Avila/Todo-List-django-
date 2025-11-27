@@ -14,20 +14,20 @@ class CreateTodoView(LoginRequiredMixin, CreateView):
         form.save(user=self.request.user)
         return redirect(self.success_url)
 
-class UpdateTodoView(UpdateView):
+class UpdateTodoView(LoginRequiredMixin,UpdateView):
     model = Todo
     form_class = TodoForm
     template_name = 'todo_list/pages/update_todo.html'
     success_url = reverse_lazy('todo_list:home')
 
 
-class DeleteTodoView(DeleteView):
+class DeleteTodoView(LoginRequiredMixin, DeleteView):
     model = Todo
     template_name = 'todo_list/partials/delete_confirm.html'
     success_url = '/'
 
 
-class ToggleStatusView(View):
+class ToggleStatusView(LoginRequiredMixin, View):
     def post(self, request, pk):
         todo = Todo.objects.get(pk=pk)
 

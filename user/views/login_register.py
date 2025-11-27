@@ -32,7 +32,7 @@ def register_create(request):
         del(request.session['register_form_data'])
         return redirect(reverse('todo_list:home'))
     
-    return redirect('user:register_view')
+    return redirect('user:login_view')
 
 
 def login_view(request):
