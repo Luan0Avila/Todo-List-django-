@@ -8,4 +8,5 @@
     <p>{{ profile.bio }}</p>
     
 </div>
+<a class="logout-btn" href="{% url 'user:profile_edit' user.profile.pk %}">Editar Perfil</a>
 {% endblock content %}
