@@ -77,9 +77,26 @@ header h1 {
     font-size: 18px;
 }
 
-/* ======== LOGOUT BUTTON ======== */
-.logout-btn {
+.nav-btn {
     background: #ffffff;
+    color: #2f2f2f;
+    padding: 9px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-left: 1rem; 
+    margin-bottom: 20px;
+}
+
+.nav-btn:hover {
+    background: #ececec;
+}
+
+.edit-btn {
+    background: hsl(209, 100%, 68%);
     color: #2f2f2f;
     padding: 9px 18px;
     border-radius: 10px;
@@ -91,8 +108,8 @@ header h1 {
     margin-left: 1rem; 
 }
 
-.logout-btn:hover {
-    background: #ececec;
+.edit-btn:hover {
+    background: #b9b9b9;
 }
 
 /* ======== CONTAINER ======== */
@@ -215,6 +232,12 @@ footer {
     padding: 30px;
 }
 
+.main-content p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
 /* Formulário */
 .main-form {
     background: #ffffff;
@@ -298,4 +321,22 @@ footer {
 
 .btn-submit:hover {
     background: #2563eb;
+}
+
+.textarea-bio {
+    width: 100%;
+    min-height: 120px;     /* <<< AUMENTA A ALTURA */
+    resize: vertical;      /* permitir redimensionamento opcional */
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #cfd6e0;
+    border-radius: 12px;
+    line-height: 1.5;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.textarea-bio:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, .2);
 }
