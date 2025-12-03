@@ -1,13 +1,23 @@
 <div class="task">
-    <div class="task-title">
-    <a href="{% url "todo_list:edit_todo" todo.id %}">
-            <h4 class="task-title">{{ todo.tarefa }}</h4>
-            <p class="task-desc">{{ todo.descrição }}</p>
-    </div>
-        <div class="status">
-            <p>{{ todo.status }}</p>
-        </div>
+
+    <a href="{% url 'todo_list:edit_todo' todo.id %}" class="task-title">
+        <h4>{{ todo.tarefa }}</h4>
+        <p class="task-desc">{{ todo.descrição }}</p>
     </a>
-    {% include "todo_list/partials/toggle_status.html" %}
-    {% include "todo_list/partials/delete_confirm.html" %}
+
+    <div class="status 
+        {% if todo.status == 'Pendente' %}
+            status-pending
+        {% else %}
+            status-done
+        {% endif %}
+    ">
+        <p>{{ todo.status }}</p>
+    </div>
+
+    <div class="toggle-status">
+        {% include "todo_list/partials/toggle_status.html" %}
+        {% include "todo_list/partials/delete_confirm.html" %}
+    </div>
+
 </div>

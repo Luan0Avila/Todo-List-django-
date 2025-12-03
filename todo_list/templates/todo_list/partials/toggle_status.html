@@ -1,6 +1,6 @@
 <form method="POST" action="{% url 'todo_list:toggle_status' todo.id %}">
     {% csrf_token %}
-    <button type="submit">
+    <button class="toggle-status-btn {% if todo.status == 'Pendente' %}pending{% else %}done{% endif %}" type="submit">
         {% if todo.status == "Pendente" %}
             <i class="fa-solid fa-check"></i>
         {% else %}
