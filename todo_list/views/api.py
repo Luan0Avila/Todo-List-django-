@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404
 class TodoAPIVieSet(ModelViewSet):
     queryset = Todo.objects.all()
     serializer_class = TodoListSerializer
-    http_method_names = ['get','head','options','patch','post']
+    http_method_names = ['get','head','options','patch','post','delete']
 
     def get_object(self):
         pk = self.kwargs.get('pk', '')
