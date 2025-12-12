@@ -15,6 +15,12 @@
         <p>{{ todo.status }}</p>
     </div>
 
+    {% if todo.categoria.all %}
+    {% for cat in todo.categoria.all %}
+        <p>{{ cat.name }}</p>
+    {% endfor %}
+{% endif %}
+
     <div class="toggle-status">
         {% include "todo_list/partials/toggle_status.html" %}
         {% include "todo_list/partials/delete_confirm.html" %}
