@@ -421,3 +421,55 @@ footer {
     border-color: #3b82f6;
     box-shadow: 0 0 0 2px rgba(59, 130, 246, .2);
 }
+
+
+/* Messages */
+.messages-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.5rem;
+}
+
+.message {
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid  black;
+    background: gray;
+    color:  black;
+}
+
+.message-error {
+    border: 1px solid  black;
+    background:  #f8d7da;
+    color:  #da525d;
+}
+
+.message-success {
+    border: 1px solid  black;
+    background:  #d4edda;
+    color:  #4a9c5d;
+}
+
+.message-warning {
+    border: 1px solid black;
+    background: #fff3cd;
+    color: #927f40;
+}
+
+.message-alert {
+    border: 1px solid  black;
+    background:  #fff3cd;
+    color:#927f40;;
+}
+
+.message-info {
+    border: 1px solid  black;
+    background: #cce5ff;
+    color:  #4d86c4;
+}
+
+.message-debug {
+    border: 1px solid black;
+    background: #cce5ff;
+    color: #4d86c4;
+}

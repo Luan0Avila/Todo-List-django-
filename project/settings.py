@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -158,4 +159,12 @@ SIMPLE_JWT = {
     "SIGNING_KEY": os.environ.get('SECRET_KEY', 'INSECURE'),
     "AUTH_HEADER_TYPES": ("Bearer",),
 
+}
+
+MESSAGE_TAGS = {
+    constants.DEBUG: 'message-debug',
+    constants.ERROR: 'message-error',
+    constants.INFO: 'message-info',
+    constants.WARNING: 'message-warning',
+    constants.SUCCESS: 'message-success'
 }

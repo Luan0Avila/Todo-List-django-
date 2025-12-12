@@ -64,7 +64,7 @@ def login_create(request):
 
         if authenticated_user is not None:
             login(request, authenticated_user)
-            messages.success(request, 'You are logged in.')
+            messages.success(request, 'Você está conectado.')
             return redirect(reverse('todo_list:home'))
 
         messages.error(request, 'Invalid credentials')

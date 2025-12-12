@@ -6,6 +6,10 @@
     {% if user.is_authenticated %}
         <h2>Bem Vindo, {{ user }}!</h2>
 
+        <button class="create-btn">
+            <a href="{% url 'todo_list:create_todo' %}">Criar tarefa</a>
+        </button>
+        
         {% for todo in todos %}
             {% include 'todo_list/partials/todo.html' %}
         {% empty %}
@@ -15,9 +19,7 @@
             </div>
         {% endfor %}
 
-        <button class="create-btn">
-            <a href="{% url 'todo_list:create_todo' %}">Criar tarefa</a>
-        </button>
+
 
     {% else %}
         <h2>Entre para ver suas tarefas</h2>
