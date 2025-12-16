@@ -1,22 +1,22 @@
 {% include './partials/head.html'%}
-
+{% load i18n %}
 
 <header class="page-header">
-    <h1><a href="{% url "todo_list:home" %}">Todo List</a></h1>
+    <h1><a href="{% url "todo_list:home" %}">{%translate 'To-do List'%}</a></h1>
 
     <nav class="enter-out">
         {% if user.is_authenticated %}
             <form action="{% url 'user:logout' %}" method="POST" class="form-logout">
                 {% csrf_token %}
                 <input type="hidden" name="username" value="{{ request.user.username }}">
-                <button class="nav-btn" type="submit">Desconectar</button>
+                <button class="nav-btn" type="submit">{%translate 'Desconect'%}</button>
             </form>
         
-        <a class="nav-btn" href="{% url 'user:profile' user.profile.pk %}">Perfil</a>
+        <a class="nav-btn" href="{% url 'user:profile' user.profile.pk %}">{%translate 'Profile'%}</a>
 
         {% else %}
-                <a class="nav-btn" href="{% url 'user:login_view'%}">Entrar</a>
-                <a class="nav-btn" href="{% url 'user:register_view'%}">Cadastrar</a>
+                <a class="nav-btn" href="{% url 'user:login_view'%}">{%translate 'Login'%}</a>
+                <a class="nav-btn" href="{% url 'user:register_view'%}">{%translate 'Register'%}</a>
 
             {% endif %}
     </nav>
