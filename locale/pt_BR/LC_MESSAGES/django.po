@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-16 15:49+0000\n"
+"POT-Creation-Date: 2025-12-16 15:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1261,3 +1261,19 @@ msgstr ""
 #: env/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#: todo_list/templates/todo_list/pages/home.html:8
+msgid "Wellcome"
+msgstr ""
+
+#: todo_list/templates/todo_list/pages/home.html:11
+msgid "Create To-Do"
+msgstr "Criar Tarefa"
+
+#: todo_list/templates/todo_list/pages/home.html:19
+msgid "you don't have any tasks yet"
+msgstr "Você não tem nenhuma tarefa"
+
+#: todo_list/templates/todo_list/pages/home.html:26
+msgid "Log in to see your tasks"
+msgstr "Entre para ver suas tarefas"

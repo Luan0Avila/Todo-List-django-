@@ -1,13 +1,14 @@
 {% extends "global/base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div>
 
     {% if user.is_authenticated %}
-        <h2>Bem Vindo, {{ user }}!</h2>
+        <h2>{%translate 'Wellcome'%}, {{ user }}!</h2>
 
         <button class="create-btn">
-            <a href="{% url 'todo_list:create_todo' %}">Criar tarefa</a>
+            <a href="{% url 'todo_list:create_todo' %}">{%translate 'Create To-Do'%}</a>
         </button>
         
         {% for todo in todos %}
@@ -15,14 +16,14 @@
         {% empty %}
             <div class="empty-box">
                 <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" alt="">
-                <h3>Você ainda não tem nenhuma tarefa</h3>
+                <h3>{%translate "you don't have any tasks yet"%}</h3>
             </div>
         {% endfor %}
 
 
 
     {% else %}
-        <h2>Entre para ver suas tarefas</h2>
+        <h2>{%translate 'Log in to see your tasks'%}</h2>
     {% endif %}
 
 </div>
