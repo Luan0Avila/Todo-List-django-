@@ -1264,7 +1264,7 @@ msgstr ""
 
 #: todo_list/templates/todo_list/pages/home.html:8
 msgid "Wellcome"
-msgstr ""
+msgstr "Bem vindo"
 
 #: todo_list/templates/todo_list/pages/home.html:11
 msgid "Create To-Do"

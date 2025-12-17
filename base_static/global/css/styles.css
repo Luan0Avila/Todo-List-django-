@@ -139,6 +139,7 @@ header h1 {
 /* ======== TASK ITEM ======== */
 .task {
     background: #fbfbff;
+    margin-top: 10px;
     padding: 22px;
     border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.06) 0 2px 6px;
@@ -260,7 +261,7 @@ header h1 {
 
 /* ======== BUTTON: Criar Tarefa ======== */
 .create-btn {
-    margin: 35px auto 0 auto;
+    margin: 35px 10px auto 0 auto;
     padding: 14px 40px;
     background: #6535d6;
     border: none;

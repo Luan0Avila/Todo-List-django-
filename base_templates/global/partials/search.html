@@ -1,7 +1,9 @@
+{% load i18n %}
+
 <div class="search-container">
     <div class="search-bar">
         <form action="{% url 'todo_list:search_todos' %}" method="GET" class="search-form">
-            <input type="search" class="search-input" name="q" value="{{ search_term }}" required placeholder="Buscar por tarefa">
+            <input type="search" class="search-input" name="q" value="{{ search_term }}" required placeholder="{%translate 'Search for a task'%}">
             <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
         </form>
     </div>
