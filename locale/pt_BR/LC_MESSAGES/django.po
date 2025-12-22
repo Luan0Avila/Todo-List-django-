@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-16 15:54+0000\n"
+"POT-Creation-Date: 2025-12-22 15:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,11 +30,11 @@ msgstr "Desconectar"
 msgid "Profile"
 msgstr "Perfil"
 
-#: base_templates/global/base.html:18
+#: base_templates/global/base.html:18 user/templates/user/pages/login.html:7
 msgid "Login"
 msgstr "Entrar"
 
-#: base_templates/global/base.html:19
+#: base_templates/global/base.html:19 user/templates/user/pages/register.html:7
 msgid "Register"
 msgstr "Cadastrar"
 
@@ -1264,7 +1264,7 @@ msgstr ""
 
 #: todo_list/templates/todo_list/pages/home.html:8
 msgid "Wellcome"
-msgstr ""
+msgstr "Bem Vindo"
 
 #: todo_list/templates/todo_list/pages/home.html:11
 msgid "Create To-Do"
@@ -1277,3 +1277,9 @@ msgstr "Você não tem nenhuma tarefa"
 #: todo_list/templates/todo_list/pages/home.html:26
 msgid "Log in to see your tasks"
 msgstr "Entre para ver suas tarefas"
+
+#: user/templates/user/pages/profile.html:11
+#, fuzzy
+#| msgid "Profile"
+msgid "Edit Profile"
+msgstr "Editrar Perfil"
