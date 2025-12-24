@@ -7,4 +7,4 @@ DEBUG = 1
 DATABASE_ENGINE = 'django.db.backends.sqlite3'
 DATABASE_NAME = "./db.sqlite3"
 #postgresql
-#DATABASE_URL = postgresql://neondb_owner:npg_RLte82OqCBKx@ep-sparkling-sunset-afvl1ng7-pooler.c-2.us-west-2.aws.neon.tech:5432/neondb
+#DATABASE_URL = tester:senha@localhost:5432/meubanco
