@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'INSECURE')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.environ.get('DEBUG') == '1' else False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['To-Do_List.squareweb.app','0.0.0.0', '127.0.0.1']
 
 
 # Application definition
@@ -174,3 +174,5 @@ MESSAGE_TAGS = {
     constants.WARNING: 'message-warning',
     constants.SUCCESS: 'message-success'
 }
+
+CSRF_TRUSTED_ORIGINS = ['https://To-Do_List.squareweb.app']
