@@ -42,7 +42,7 @@ def register_create(request):
 
         mail_subject = 'Ative sua conta'
         message = render_to_string(
-            'user/emails/activation_email.html',
+            'user/pages/activation_email.html',
             {
                 'user': user,
                 'domain': current_site.domain,
