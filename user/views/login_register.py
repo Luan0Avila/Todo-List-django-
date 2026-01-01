@@ -16,6 +16,7 @@ from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from django.contrib.sites.shortcuts import get_current_site
 from ..tokens import account_activation_token
+from django.conf import settings
 
 def register_view(request):
     register_form_data = request.session.get('register_form_data', None)
@@ -54,9 +55,10 @@ def register_create(request):
         email = EmailMessage(
             mail_subject,
             message,
-            to=[user.email]
+            settings.DEFAULT_FROM_EMAIL,  
         )
-        email.send()
+        email.content_subtype = "html"
+        email.send(fail_silently=False)
         messages.success(request, 'Conta criada! Verifique seu e-mail para ativá-la.')
 
         del(request.session['register_form_data'])
