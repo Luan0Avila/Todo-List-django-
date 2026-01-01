@@ -9,5 +9,5 @@ DATABASE_NAME = "./db.sqlite3"
 #postgresql
 #DATABASE_URL = tester:senha@localhost:5432/meubanco
 
-EMAIL_HOST_USER = 'seu email'
-EMAIL_HOST_PASSWORD = 'sua app password
+EMAIL_HOST_USER=testedjango11@gmail.com
+SENDGRID_API_KEY=chave da api
